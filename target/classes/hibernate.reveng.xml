@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="eucip"/>
+  <table-filter match-name="marco"/>
+  <table-filter match-name="marcas"/>
+  <table-filter match-name="coches"/>
+  <table-filter match-name="ventas"/>
+  <table-filter match-name="distribucion"/>
+  <table-filter match-name="clientes"/>
+  <table-filter match-name="concesionarios"/>
+</hibernate-reverse-engineering>

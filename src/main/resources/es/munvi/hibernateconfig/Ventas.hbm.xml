@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-sep-2015 13:03:19 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="es.munvi.hibernateconfig.Ventas" table="ventas" catalog="eucip" optimistic-lock="version">
+        <composite-id name="id" class="es.munvi.hibernateconfig.VentasId">
+            <key-property name="cifc" type="string">
+                <column name="CIFC" length="10" />
+            </key-property>
+            <key-property name="dni" type="string">
+                <column name="DNI" length="10" />
+            </key-property>
+            <key-property name="codcoche" type="string">
+                <column name="CODCOCHE" length="10" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="clientes" class="es.munvi.hibernateconfig.Clientes" update="false" insert="false" fetch="select">
+            <column name="DNI" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="coches" class="es.munvi.hibernateconfig.Coches" update="false" insert="false" fetch="select">
+            <column name="CODCOCHE" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="concesionarios" class="es.munvi.hibernateconfig.Concesionarios" update="false" insert="false" fetch="select">
+            <column name="CIFC" length="10" not-null="true" />
+        </many-to-one>
+        <property name="color" type="string">
+            <column name="COLOR" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

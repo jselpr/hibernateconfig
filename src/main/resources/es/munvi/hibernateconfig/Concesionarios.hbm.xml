@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-sep-2015 13:03:19 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="es.munvi.hibernateconfig.Concesionarios" table="concesionarios" catalog="eucip" optimistic-lock="version">
+        <id name="cifc" type="string">
+            <column name="CIFC" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="45" />
+        </property>
+        <property name="ciudad" type="string">
+            <column name="CIUDAD" length="45" />
+        </property>
+        <set name="distribucions" table="distribucion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CIFC" length="10" not-null="true" />
+            </key>
+            <one-to-many class="es.munvi.hibernateconfig.Distribucion" />
+        </set>
+        <set name="ventases" table="ventas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CIFC" length="10" not-null="true" />
+            </key>
+            <one-to-many class="es.munvi.hibernateconfig.Ventas" />
+        </set>
+    </class>
+</hibernate-mapping>

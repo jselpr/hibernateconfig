@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-sep-2015 13:03:19 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="es.munvi.hibernateconfig.Marco" table="marco" catalog="eucip" optimistic-lock="version">
+        <composite-id name="id" class="es.munvi.hibernateconfig.MarcoId">
+            <key-property name="cifm" type="string">
+                <column name="CIFM" length="10" />
+            </key-property>
+            <key-property name="codcoche" type="string">
+                <column name="CODCOCHE" length="10" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="coches" class="es.munvi.hibernateconfig.Coches" update="false" insert="false" fetch="select">
+            <column name="CODCOCHE" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="marcas" class="es.munvi.hibernateconfig.Marcas" update="false" insert="false" fetch="select">
+            <column name="CIFM" length="10" not-null="true" />
+        </many-to-one>
+        <property name="descuento" type="java.lang.Integer">
+            <column name="DESCUENTO" />
+        </property>
+    </class>
+</hibernate-mapping>
